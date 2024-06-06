@@ -43,10 +43,10 @@ export async function POST(req) {
   //   }
 
   try {
-    const body = await req.json();
+    // const body = await req.json();
 
-    console.log(body);
-
+    // console.log(body);
+    console.log('got the req');
     return NextResponse.json({ message: 'Received ' }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ message: error.message }, { status: 404 });
