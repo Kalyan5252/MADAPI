@@ -37,7 +37,10 @@ export async function POST(req) {
     const user = await Users.findOne({ userName });
     if (!user) throw new Error('User Not Found');
     if (user.password !== password) throw new Error('Incorrect Credentials');
-    return NextResponse.json({ message: 'Login Successful' }, { status: 200 });
+    return NextResponse.json(
+      { message: 'Login Successful', userName: user.userName },
+      { status: 200 }
+    );
   } catch (error) {
     return NextResponse.json({ message: error.message }, { status: 404 });
   }
