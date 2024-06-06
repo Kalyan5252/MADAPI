@@ -6,7 +6,8 @@ await startDb();
 
 export async function GET(req) {
   try {
-    const data = await Requests.find({ active: true });
+    // const data = await Requests.find({ active: true });
+    const data = await Requests.find();
 
     if (!data) throw new Error('Cannot get Data');
     return NextResponse.json({ data }, { status: 200 });
