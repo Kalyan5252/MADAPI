@@ -38,7 +38,7 @@ export async function POST(req) {
     if (!user) throw new Error('User Not Found');
     if (user.password !== password) throw new Error('Incorrect Credentials');
     return NextResponse.json(
-      { message: 'Login Successful', userName: user.userName },
+      { message: 'Login Successful', userName: user.userName, role: user.role },
       { status: 200 }
     );
   } catch (error) {
